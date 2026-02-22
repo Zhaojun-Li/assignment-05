@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://8abb5bt4xauh"]
+
+[ext_resource type="Script" uid="uid://cns8nmk73p6vm" path="res://scenes/main/Main.gd" id="1_u1xfj"]
+[ext_resource type="PackedScene" uid="uid://crmfcqumu7qfr" path="res://scenes/screens/GameOver.tscn" id="2_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://dsw2jr33g3h6k" path="res://scenes/screens/Menu.tscn" id="4_1rhdn"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_u1xfj")
+
+[node name="GameOver" parent="." instance=ExtResource("2_gyg6b")]
+
+[node name="Menu" parent="." instance=ExtResource("4_1rhdn")]
+
+[node name="LevelHolder" type="Node" parent="."]

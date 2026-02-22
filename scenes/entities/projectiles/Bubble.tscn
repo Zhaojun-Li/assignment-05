@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2rxpn4cle7i4"]
+
+[ext_resource type="Script" uid="uid://dur8kwfxn3d5q" path="res://scenes/entities/projectiles/Bubble.gd" id="1_5g3qy"]
+[ext_resource type="Texture2D" uid="uid://qosyadm0mxp0" path="res://assets/sprites/bubble.png" id="1_esxm3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5g3qy"]
+
+[node name="Bubble" type="Area2D" groups=["bubbles"]]
+script = ExtResource("1_5g3qy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_esxm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.335, 3.335)
+shape = SubResource("CircleShape2D_5g3qy")
+
+[node name="Timer" type="Timer" parent="."]
