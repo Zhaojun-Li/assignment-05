@@ -41,10 +41,11 @@ func _start_game() -> void:
 # Show game over
 func _on_level_request_game_over(final_score: int) -> void:
 	state = State.GAME_OVER
+	_clear_level_holder()
 
-	BG.visible = false
-	game_over_screen.visible = true
+	BG.visible = true
 	menu_screen.visible = false
+	game_over_screen.visible = true
 
 	if game_over_screen.has_node("Label"):
 		game_over_screen.get_node("Label").text = "Game Over\nYour score is: %d\nPress R or Fire(Space) to Restart" % final_score

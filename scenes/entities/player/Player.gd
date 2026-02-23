@@ -11,6 +11,7 @@ var lives: int
 var invuln_timer: float = 0.0
 var shoot_lock_timer: float = 0.0
 var _flicker_timer: float = 0.0
+var is_dead: bool = false
 
 # Find sprite node for flickering
 @onready var sprite_node: CanvasItem = _find_sprite_node()
@@ -31,6 +32,21 @@ func _ready() -> void:
 	_start_invuln_and_lock()
 
 func _physics_process(delta: float) -> void:
+	# Play death effect
+	if is_dead:
+		invuln_timer -= delta
+		_flicker_timer += delta
+		
+		# Create flicker effect by toggle sprite
+		if _flicker_timer >= flicker_interval:
+			_flicker_timer = 0.0
+			_set_sprite_visible(not _get_sprite_visible())
+
+		if invuln_timer <= 0.0:
+			_set_sprite_visible(false)
+			emit_signal("died")
+		return
+
 	# Invulnerability timer
 	if invuln_timer > 0.0:
 		invuln_timer -= delta
@@ -104,7 +120,7 @@ func hurt() -> void:
 	if health <= 0:
 		lives -= 1
 		if lives <= 0:
-			emit_signal("died")
+			_start_death_effect()
 			return
 		# Reset health if player still has lives
 		health = max_health
@@ -152,3 +168,18 @@ func _get_sprite_visible() -> bool:
 	if sprite_node:
 		return sprite_node.visible
 	return true
+
+func _start_death_effect() -> void:
+	is_dead = true
+	invuln_timer = invuln_duration
+	_flicker_timer = 0.0
+
+	# stop movement
+	velocity = Vector2.ZERO
+
+	# turn red
+	if sprite_node:
+		sprite_node.modulate = Color(1.0, 0.0, 0.0, 1.0)
+
+	# make sure visible at start
+	_set_sprite_visible(true)
