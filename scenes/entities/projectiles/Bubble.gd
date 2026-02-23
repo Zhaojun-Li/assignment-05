@@ -35,6 +35,12 @@ func _process(delta: float) -> void:
 	if trapped_enemy != null and is_instance_valid(trapped_enemy):
 		trapped_enemy.global_position = global_position
 		
+		# pop if player is inside enemy bubble
+		for b in get_overlapping_bodies():
+			if b is Player:
+				pop()
+				return
+				
 		# Count escape time
 		_escape_timer += delta
 		if _escape_timer >= escape_time:
