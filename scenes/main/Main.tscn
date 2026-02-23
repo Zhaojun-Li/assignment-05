@@ -8,6 +8,10 @@
 script = ExtResource("1_u1xfj")
 
 [node name="GameOver" parent="." instance=ExtResource("2_gyg6b")]
+offset_left = -40.0
+offset_top = -67.0
+offset_right = -40.0
+offset_bottom = -67.0
 
 [node name="Menu" parent="." instance=ExtResource("4_1rhdn")]
 
