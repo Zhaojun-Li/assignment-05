@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2e7ra3ofw8hi"]
+[gd_scene load_steps=14 format=3 uid="uid://b2e7ra3ofw8hi"]
 
 [ext_resource type="Texture2D" uid="uid://cnoomg7s2tod3" path="res://assets/sprites/tileset.png" id="1_pgnbf"]
 [ext_resource type="Script" uid="uid://3syfklnig5g2" path="res://scenes/world/Level01.gd" id="1_vlijf"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cso7tnyixqile" path="res://assets/audio/sfx_fire.ogg" id="7_vxbvq"]
 [ext_resource type="AudioStream" uid="uid://b5rt21n5trovu" path="res://assets/audio/sfx_jump.ogg" id="8_mxyov"]
 [ext_resource type="AudioStream" uid="uid://bufjecj81lk6v" path="res://assets/audio/sfx_pop.ogg" id="9_pxsja"]
+[ext_resource type="FontFile" uid="uid://b7cvkwgvxaixh" path="res://assets/fonts/home-video-font/HomeVideo-BLG6G.ttf" id="11_mxyov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1m17"]
 texture = ExtResource("1_pgnbf")
@@ -26,10 +27,37 @@ sources/0 = SubResource("TileSetAtlasSource_g1m17")
 script = ExtResource("1_vlijf")
 enemy_scene = ExtResource("4_g1m17")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(1.44, 1.44)
+[node name="BG" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_vxbvq")
+flip_h = true
+
+[node name="HowToPlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HowToPlay"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 475.0
+offset_right = 314.0
+offset_bottom = 575.99927
+theme_override_fonts/font = ExtResource("11_mxyov")
+theme_override_font_sizes/font_size = 12
+text = "Instruction:
+
+Up or w to jump
+Left Arrow or a to move left
+Right Arrow or d to move right 
+Space to shoot bubble"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_vlijf")

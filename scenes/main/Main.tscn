@@ -1,16 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://8abb5bt4xauh"]
+[gd_scene load_steps=5 format=3 uid="uid://8abb5bt4xauh"]
 
 [ext_resource type="Script" uid="uid://cns8nmk73p6vm" path="res://scenes/main/Main.gd" id="1_u1xfj"]
 [ext_resource type="PackedScene" uid="uid://crmfcqumu7qfr" path="res://scenes/screens/GameOver.tscn" id="2_gyg6b"]
 [ext_resource type="PackedScene" uid="uid://dsw2jr33g3h6k" path="res://scenes/screens/Menu.tscn" id="4_1rhdn"]
+[ext_resource type="Texture2D" uid="uid://dmgvcspt7bo2h" path="res://assets/sprites/bg.png" id="4_gyg6b"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_u1xfj")
 
+[node name="LevelHolder" type="Node" parent="."]
+
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BG" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gyg6b")
 
 [node name="GameOver" parent="UI" instance=ExtResource("2_gyg6b")]
 
 [node name="Menu" parent="UI" instance=ExtResource("4_1rhdn")]
-
-[node name="LevelHolder" type="Node" parent="."]

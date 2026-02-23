@@ -26,5 +26,9 @@ offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_r88xi")
-theme_override_font_sizes/font_size = 48
-text = "Press Fire to Start"
+theme_override_font_sizes/font_size = 36
+text = "Press Fire(Space) to Start
+
+Hint: If you let a enemy escape bubble
+it will grant you more point on death!"
+horizontal_alignment = 1
