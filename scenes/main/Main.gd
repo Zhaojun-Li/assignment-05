@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("restart") or Input.is_action_just_pressed("fire"):
 			_show_menu()
 
+# Start game
 func _start_game() -> void:
 	state = State.PLAY
 	menu_screen.visible = false
@@ -35,6 +36,7 @@ func _start_game() -> void:
 	if level.has_signal("request_game_over"):
 		level.request_game_over.connect(_on_level_request_game_over)
 
+# Show game over
 func _on_level_request_game_over(final_score: int) -> void:
 	state = State.GAME_OVER
 	_clear_level_holder()
@@ -52,6 +54,7 @@ func _show_menu() -> void:
 	menu_screen.visible = true
 	game_over_screen.visible = false
 
+# Remove old level
 func _clear_level_holder() -> void:
 	for c in level_holder.get_children():
 		c.queue_free()
