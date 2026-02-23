@@ -1,18 +1,30 @@
-[gd_scene format=3 uid="uid://dsw2jr33g3h6k"]
+[gd_scene load_steps=2 format=3 uid="uid://dsw2jr33g3h6k"]
+
+[ext_resource type="FontFile" uid="uid://dwf0x3m2bj7mj" path="res://assets/fonts/home-video-font/HomeVideoBold-R90Dv.ttf" id="1_r88xi"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 514.0
-offset_top = 304.0
-offset_right = 651.0
-offset_bottom = 327.0
+anchor_bottom = 0.5
+offset_left = -273.5
+offset_top = -22.0
+offset_right = 273.5
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_r88xi")
+theme_override_font_sizes/font_size = 48
 text = "Press Fire to Start"

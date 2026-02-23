@@ -6,8 +6,8 @@ var state: State = State.MENU
 
 var level_scene := preload("res://scenes/world/Level01.tscn")
 
-@onready var menu_screen: Control = $Menu
-@onready var game_over_screen: Control = $GameOver
+@onready var menu_screen: Control = $UI/Menu
+@onready var game_over_screen: Control = $UI/GameOver
 @onready var level_holder: Node = $LevelHolder
 
 func _ready() -> void:
@@ -43,8 +43,8 @@ func _on_level_request_game_over(final_score: int) -> void:
 	game_over_screen.visible = true
 	menu_screen.visible = false
 
-	if game_over_screen.has_node("InfoLabel"):
-		game_over_screen.get_node("InfoLabel").text = "Game Over\nScore: %d\nPress R (or Fire) to Restart" % final_score
+	if game_over_screen.has_node("Label"):
+		game_over_screen.get_node("Label").text = "Game Over\nScore: %d\nPress R (or Fire) to Restart" % final_score
 
 func _show_menu() -> void:
 	state = State.MENU
