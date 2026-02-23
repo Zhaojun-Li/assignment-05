@@ -16,11 +16,11 @@ var level_complete := false
 @export var enemy_scene: PackedScene
 @export var enemy_spawn_points: Array[Vector2] = [
 	Vector2(100, 0),
-	Vector2(1100, 0),
+	Vector2(1000, 0),
 	Vector2(400, 250),
 	Vector2(800, 250),
 	Vector2(100, 400),
-	Vector2(1100, 400),
+	Vector2(1000, 400),
 ]
 
 func _ready() -> void:

@@ -93,6 +93,10 @@ func _on_lifetime_timeout() -> void:
 	_cleanup_and_free(false)
 
 func _cleanup_and_free(_award_points: bool) -> void:
+	# Remove if enemy is inside
+	if trapped_enemy != null and is_instance_valid(trapped_enemy):
+		trapped_enemy.queue_free()
+		trapped_enemy = null
 	queue_free()
 
 # Enemy escape and turn aggressive
