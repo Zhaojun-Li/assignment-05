@@ -29,9 +29,6 @@ func _ready() -> void:
 	_saved_mask = collision_mask
 	_base_speed = speed
 
-	if hurt_box:
-		hurt_box.body_entered.connect(_on_hurtbox_body_entered)
-
 # Return enemy type for score
 func get_enemy_type() -> int:
 	return int(enemy_type)
@@ -43,13 +40,6 @@ func make_aggressive() -> void:
 
 	if sprite:
 		sprite.modulate = Color(1.0, 0.0, 0.0, 0.5)
-
-# Damage player when touched
-func _on_hurtbox_body_entered(body: Node) -> void:
-	if state != State.ACTIVE:
-		return
-	if body is Player:
-		body.hurt()
 
 # Open/close trap state
 func set_trapped(trapped: bool) -> void:
@@ -102,6 +92,13 @@ func _physics_process(delta: float) -> void:
 			dir *= -1
 
 	_update_facing()
+	
+	# Continuous damage check
+	if hurt_box and state == State.ACTIVE:
+		for b in hurt_box.get_overlapping_bodies():
+			if b is Player:
+				b.hurt()
+				break
 
 # Flip sprite on direction
 func _update_facing() -> void:
