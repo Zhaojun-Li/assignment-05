@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7e88h8d70fsc" path="res://assets/sprites/player.png" id="1_tlaso"]
 [ext_resource type="PackedScene" uid="uid://d2rxpn4cle7i4" path="res://scenes/entities/projectiles/Bubble.tscn" id="3_n1xdv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_afppm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1xdv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tlaso"]
 
@@ -18,7 +18,7 @@ texture = ExtResource("1_tlaso")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.64)
 scale = Vector2(2.92, 3.155)
-shape = SubResource("RectangleShape2D_afppm")
+shape = SubResource("RectangleShape2D_n1xdv")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
