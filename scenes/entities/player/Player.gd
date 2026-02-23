@@ -91,6 +91,10 @@ func hurt() -> void:
 
 	# Reduce health
 	health -= 1
+	# Play ouch sound
+	var level := get_parent()
+	if level and level.has_method("play_sfx_ouch"):
+		level.play_sfx_ouch()
 	
 	# Knockup
 	velocity.y = jump_velocity * 0.5

@@ -10,6 +10,7 @@ var level_complete := false
 @onready var sfx_fire: AudioStreamPlayer2D = $SFXFire
 @onready var sfx_jump: AudioStreamPlayer2D = $SFXJump
 @onready var sfx_pop: AudioStreamPlayer2D = $SFXPop
+@onready var sfx_ouch: AudioStreamPlayer2D = $SFXOuch
 @onready var player: Player = $Player
 @onready var hud := $HUD
 
@@ -49,7 +50,11 @@ func play_sfx_jump() -> void:
 func play_sfx_pop() -> void:
 	if sfx_pop:
 		sfx_pop.play()
-
+		
+func play_sfx_ouch() -> void:
+	if sfx_ouch:
+		sfx_ouch.play()
+		
 func _process(_delta: float) -> void:
 	_update_hud()
 	

@@ -42,7 +42,7 @@ func _start_game() -> void:
 func _on_level_request_game_over(final_score: int) -> void:
 	state = State.GAME_OVER
 
-	BG.visible = true
+	BG.visible = false
 	game_over_screen.visible = true
 	menu_screen.visible = false
 
