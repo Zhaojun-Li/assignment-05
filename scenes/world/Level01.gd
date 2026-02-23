@@ -4,6 +4,7 @@ class_name Level01
 signal request_game_over(final_score: int)
 
 var score: int = 0
+var level_complete := false
 
 @onready var music: AudioStreamPlayer2D = $Music
 @onready var sfx_fire: AudioStreamPlayer2D = $SFXFire
@@ -48,7 +49,11 @@ func play_sfx_pop() -> void:
 
 func _process(_delta: float) -> void:
 	_update_hud()
-
+	
+	if not level_complete and get_tree().get_nodes_in_group("enemies").size() == 0:
+		level_complete = true
+		emit_signal("request_game_over", score)
+		
 # Spawn enemy at fixed position
 func _spawn_enemies() -> void:
 	if enemy_scene == null:
