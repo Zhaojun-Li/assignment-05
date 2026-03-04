@@ -28,13 +28,13 @@ animations = [{
 script = ExtResource("1_5g3qy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_svhk7")
 animation = &"fly"
-frame_progress = 0.10534474
+frame_progress = 0.6253865
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3.335, 3.335)
+scale = Vector2(2.865, 2.865)
 shape = SubResource("CircleShape2D_5g3qy")
 
 [node name="Timer" type="Timer" parent="."]

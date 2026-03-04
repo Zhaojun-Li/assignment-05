@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c3rdq5qo8f373"
+valid=false
+
+[deps]
+
+source_file="res://assets_ai/docs/ASSET_LOG.csv"
+
+[params]
+
+compress=true
+delimiter=0
