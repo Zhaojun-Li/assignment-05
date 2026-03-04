@@ -16,8 +16,13 @@ var _escape_timer: float = 0.0
 @export var lifetime: float = 2.8
 @export var escape_time: float = 3.0
 
+@onready var anim: AnimatedSprite2D = get_node_or_null("AnimatedSprite2D")
+
 func _ready() -> void:
 	add_to_group("bubbles")
+
+	# Play bubble fly animation
+	_play_fly_anim()
 
 	# Detect collision
 	body_entered.connect(_on_body_entered)
@@ -110,3 +115,11 @@ func _release_enemy_as_aggressive() -> void:
 
 	trapped_enemy = null
 	queue_free()
+
+# Animation helper
+func _play_fly_anim() -> void:
+	if anim:
+		if anim.animation != "fly":
+			anim.play("fly")
+		elif not anim.is_playing():
+			anim.play()
