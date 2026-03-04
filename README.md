@@ -1,5 +1,9 @@
 # Assignment - Bubble Bobble Clone
 
+##
+You had a nightmare at an abandoned mineshaft, there are ghost around you, 
+Trap the ghost with your dream bubble and pop it before you got hurt.
+
 ## How to Run
 1. Open the project in Godot
 2. Open Main.tscn

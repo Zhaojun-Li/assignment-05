@@ -2,12 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://c3rdq5qo8f373"
-valid=false
+uid="uid://kn08xidy7cen"
 
 [deps]
 
+files=["res://assets_ai/docs/ASSET_LOG.type.translation", "res://assets_ai/docs/ASSET_LOG.tool.translation", "res://assets_ai/docs/ASSET_LOG.prompt.translation", "res://assets_ai/docs/ASSET_LOG.iterations.translation", "res://assets_ai/docs/ASSET_LOG.manual.translation", "res://assets_ai/docs/ASSET_LOG.main.translation", "res://assets_ai/docs/ASSET_LOG.godot.translation", "res://assets_ai/docs/ASSET_LOG.final.translation"]
+
 source_file="res://assets_ai/docs/ASSET_LOG.csv"
+dest_files=["res://assets_ai/docs/ASSET_LOG.type.translation", "res://assets_ai/docs/ASSET_LOG.tool.translation", "res://assets_ai/docs/ASSET_LOG.prompt.translation", "res://assets_ai/docs/ASSET_LOG.iterations.translation", "res://assets_ai/docs/ASSET_LOG.manual.translation", "res://assets_ai/docs/ASSET_LOG.main.translation", "res://assets_ai/docs/ASSET_LOG.godot.translation", "res://assets_ai/docs/ASSET_LOG.final.translation"]
 
 [params]
 
