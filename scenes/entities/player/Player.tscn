@@ -49,7 +49,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1xdv"]
-size = Vector2(16.438356, 21.870049)
+size = Vector2(13.013699, 16.481777)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tlaso"]
 
@@ -58,12 +58,12 @@ script = ExtResource("1_afppm")
 bubble_scene = ExtResource("3_n1xdv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_ynxqy")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.7683716e-07, 0.49999857)
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
 scale = Vector2(2.92, 3.155)
 shape = SubResource("RectangleShape2D_n1xdv")
 
