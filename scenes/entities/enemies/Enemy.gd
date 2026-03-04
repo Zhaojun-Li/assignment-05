@@ -18,7 +18,7 @@ var _saved_mask: int
 @export var aggressive_speed_multiplier: float = 2.0
 @export var gravity: float = 1200.0
 
-@onready var sprite: Sprite2D = get_node_or_null("Sprite2D")
+@onready var sprite_node: CanvasItem = _find_sprite_node()
 @onready var ledge_ray: RayCast2D = get_node_or_null("LedgeRay")
 @onready var hurt_box: Area2D = get_node_or_null("HurtBox")
 
@@ -29,6 +29,9 @@ func _ready() -> void:
 	_saved_mask = collision_mask
 	_base_speed = speed
 
+	# Ensure animation starts
+	_play_run_if_available()
+
 # Return enemy type for score
 func get_enemy_type() -> int:
 	return int(enemy_type)
@@ -38,8 +41,8 @@ func make_aggressive() -> void:
 	enemy_type = EnemyType.AGGRESSIVE
 	speed = _base_speed * aggressive_speed_multiplier
 
-	if sprite:
-		sprite.modulate = Color(1.0, 0.0, 0.0, 0.5)
+	if sprite_node:
+		sprite_node.modulate = Color(1.0, 0.0, 0.0, 0.5)
 
 # Open/close trap state
 func set_trapped(trapped: bool) -> void:
@@ -64,6 +67,10 @@ func set_trapped(trapped: bool) -> void:
 		hurt_box.monitorable = not trapped
 
 	velocity = Vector2.ZERO
+
+	# Resume animation
+	if not trapped:
+		_play_run_if_available()
 
 func _physics_process(delta: float) -> void:
 	if state != State.ACTIVE:
@@ -92,7 +99,8 @@ func _physics_process(delta: float) -> void:
 			dir *= -1
 
 	_update_facing()
-	
+	_play_run_if_available()
+
 	# Continuous damage check
 	if hurt_box and state == State.ACTIVE:
 		for b in hurt_box.get_overlapping_bodies():
@@ -100,7 +108,26 @@ func _physics_process(delta: float) -> void:
 				b.hurt()
 				break
 
+func _find_sprite_node() -> CanvasItem:
+	if has_node("AnimatedSprite2D"):
+		return $AnimatedSprite2D as CanvasItem
+	if has_node("Sprite2D"):
+		return $Sprite2D as CanvasItem
+	return null
+
 # Flip sprite on direction
 func _update_facing() -> void:
-	if sprite:
-		sprite.flip_h = (dir > 0)
+	var should_flip := (dir < 0)
+
+	if sprite_node is AnimatedSprite2D:
+		(sprite_node as AnimatedSprite2D).flip_h = should_flip
+	elif sprite_node is Sprite2D:
+		(sprite_node as Sprite2D).flip_h = should_flip
+
+func _play_run_if_available() -> void:
+	if sprite_node is AnimatedSprite2D:
+		var anim := sprite_node as AnimatedSprite2D
+		if anim.animation != "run":
+			anim.play("run")
+		elif not anim.is_playing():
+			anim.play()

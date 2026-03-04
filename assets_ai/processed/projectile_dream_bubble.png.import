@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://me3amygrqut"
-path="res://.godot/imported/projectile_dream_bubble_sheet.png-a9983e348d09388d09443612e1f0b4a8.ctex"
+uid="uid://cbny6gu88c5fx"
+path="res://.godot/imported/projectile_dream_bubble.png-99c6a4402998ed35d3b39352c29ba5d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets_ai/processed/projectile_dream_bubble_sheet.png"
-dest_files=["res://.godot/imported/projectile_dream_bubble_sheet.png-a9983e348d09388d09443612e1f0b4a8.ctex"]
+source_file="res://assets_ai/processed/projectile_dream_bubble.png"
+dest_files=["res://.godot/imported/projectile_dream_bubble.png-99c6a4402998ed35d3b39352c29ba5d1.ctex"]
 
 [params]
 

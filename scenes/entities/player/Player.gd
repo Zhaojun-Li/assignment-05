@@ -156,7 +156,6 @@ func _shoot_bubble() -> void:
 	b.dir = facing
 	emit_signal("bubble_spawned", b)
 
-# Find sprite node for flickering
 func _find_sprite_node() -> CanvasItem:
 	if has_node("Sprite2D"):
 		return $Sprite2D as CanvasItem
