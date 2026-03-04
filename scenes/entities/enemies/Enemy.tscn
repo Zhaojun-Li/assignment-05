@@ -30,7 +30,7 @@ animations = [{
 size = Vector2(17.00405, 14.305365)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8k2k"]
-size = Vector2(15.498154, 13.419355)
+size = Vector2(16.974169, 14.451612)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_84gbo")
@@ -39,7 +39,7 @@ script = ExtResource("1_84gbo")
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_7tehq")
 animation = &"run"
-frame_progress = 0.8096265
+frame_progress = 0.24623698
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.0000002, 1.1920929e-07)
@@ -52,6 +52,6 @@ target_position = Vector2(0, 45)
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0.9999995, 4.7683716e-07)
+position = Vector2(1.0000001, 4.7683716e-07)
 scale = Vector2(2.71, 3.875)
 shape = SubResource("RectangleShape2D_y8k2k")

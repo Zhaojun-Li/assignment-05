@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bsb3c0cr4om36" path="res://assets_ai/raw/bg_mine.png" id="3_pxsja"]
 [ext_resource type="PackedScene" uid="uid://bd1axdp1rr0n1" path="res://scenes/world/HUD.tscn" id="4_3ptoi"]
 [ext_resource type="PackedScene" uid="uid://dh46s7d36lyq6" path="res://scenes/entities/enemies/Enemy.tscn" id="4_g1m17"]
-[ext_resource type="AudioStream" uid="uid://u6u0pp66yyn7" path="res://assets/audio/music_theme.ogg" id="6_r2d0q"]
-[ext_resource type="AudioStream" uid="uid://cso7tnyixqile" path="res://assets/audio/sfx_fire.ogg" id="7_vxbvq"]
-[ext_resource type="AudioStream" uid="uid://b5rt21n5trovu" path="res://assets/audio/sfx_jump.ogg" id="8_mxyov"]
-[ext_resource type="AudioStream" uid="uid://bufjecj81lk6v" path="res://assets/audio/sfx_pop.ogg" id="9_pxsja"]
+[ext_resource type="AudioStream" uid="uid://blylli4dm8ho6" path="res://assets_ai/processed/bgm_spooky_mine_loop.ogg" id="8_pxsja"]
+[ext_resource type="AudioStream" uid="uid://bm20gm81me8ja" path="res://assets_ai/processed/sfx_shoot_bubble.ogg" id="9_pxsja"]
+[ext_resource type="AudioStream" uid="uid://bife0pqb4i2br" path="res://assets_ai/processed/sfx_jump_grunt.ogg" id="10_yomtd"]
+[ext_resource type="AudioStream" uid="uid://lw5ord77ll7f" path="res://assets_ai/processed/sfx_bubble_pop.ogg" id="11_c075x"]
 [ext_resource type="FontFile" uid="uid://b7cvkwgvxaixh" path="res://assets/fonts/home-video-font/HomeVideo-BLG6G.ttf" id="11_mxyov"]
-[ext_resource type="AudioStream" uid="uid://omimmak7e4oq" path="res://assets/audio/sfx_ouch.ogg" id="12_pxsja"]
+[ext_resource type="AudioStream" uid="uid://cdf8l3ex7k4ml" path="res://assets_ai/processed/sfx_hurt_ouch.ogg" id="12_20pb6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1m17"]
 texture = ExtResource("1_pgnbf")
@@ -69,16 +69,16 @@ position = Vector2(575, 535)
 [node name="HUD" parent="." instance=ExtResource("4_3ptoi")]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_r2d0q")
+stream = ExtResource("8_pxsja")
 
 [node name="SFXFire" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_vxbvq")
-
-[node name="SFXJump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_mxyov")
-
-[node name="SFXPop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_pxsja")
 
+[node name="SFXJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_yomtd")
+
+[node name="SFXPop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_c075x")
+
 [node name="SFXOuch" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_pxsja")
+stream = ExtResource("12_20pb6")
