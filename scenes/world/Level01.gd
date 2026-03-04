@@ -11,18 +11,17 @@ var level_complete := false
 @onready var sfx_jump: AudioStreamPlayer2D = $SFXJump
 @onready var sfx_pop: AudioStreamPlayer2D = $SFXPop
 @onready var sfx_ouch: AudioStreamPlayer2D = $SFXOuch
+@onready var sfx_dissolve: AudioStreamPlayer2D = $SFXDissolve
+
 @onready var player: Player = $Player
 @onready var hud := $HUD
 
 @export var enemy_scene: PackedScene
 @export var enemy_spawn_points: Array[Vector2] = [
 	Vector2(1000, 0),
-	
 	Vector2(300, 100),
 	Vector2(700, 100),
-	
 	Vector2(600, 250),
-	
 	Vector2(100, 400),
 	Vector2(1000, 400),
 ]
@@ -55,13 +54,16 @@ func play_sfx_ouch() -> void:
 	if sfx_ouch:
 		sfx_ouch.play()
 		
+func play_sfx_dissolve() -> void:
+	if sfx_dissolve:
+		sfx_dissolve.play()
+
 func _process(_delta: float) -> void:
 	_update_hud()
 	
 	if not level_complete and get_tree().get_nodes_in_group("enemies").size() == 0:
 		level_complete = true
 		emit_signal("request_game_over", score)
-		
 # Spawn enemy at fixed position
 func _spawn_enemies() -> void:
 	if enemy_scene == null:

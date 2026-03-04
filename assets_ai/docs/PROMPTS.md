@@ -27,6 +27,7 @@ Used for:
 - Hurt sound
 - Bubble shooting sound
 - Bubble pop sound
+- Enemy death sound
 
 ### Music
 Tool: Mureka AI Music Generator
@@ -177,6 +178,15 @@ replace with a short tonal “jump sound” and explain the limitation.
 **prompt:**
 """bubble pop sound effect, crisp pop with tiny sparkle, 0.1-0.2 seconds,
 retro game style, no long tail"""
+**iterations:** 2–5
+
+## F) Ghost Dissolve (enemy defeated)
+**asset_id:** sfx_ghost_dissolve
+**type:** sfx
+**prompt:**
+"""ghost dissolve sound effect, eerie soft whoosh with faint whisper fade,
+spooky vapor-like disappearance, 0.2-0.4 seconds,
+retro arcade game style, no long tail"""
 **iterations:** 2–5
 
 ---

@@ -81,7 +81,11 @@ func _on_body_entered(body: Node) -> void:
 		float_up = true
 		_escape_timer = 0.0
 		$Timer.stop()
-
+		
+		var level := get_parent()
+		if level and level.has_method("play_sfx_dissolve"):
+			level.play_sfx_dissolve()
+		
 func pop() -> void:
 	var trapped_type := 0
 

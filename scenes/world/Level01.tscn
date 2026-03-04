@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2e7ra3ofw8hi"]
+[gd_scene load_steps=20 format=3 uid="uid://b2e7ra3ofw8hi"]
 
 [ext_resource type="Script" uid="uid://3syfklnig5g2" path="res://scenes/world/Level01.gd" id="1_vlijf"]
 [ext_resource type="PackedScene" uid="uid://w573piwcgd6k" path="res://scenes/entities/player/Player.tscn" id="3_pgnbf"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://lw5ord77ll7f" path="res://assets_ai/processed/sfx_bubble_pop.ogg" id="11_c075x"]
 [ext_resource type="FontFile" uid="uid://b7cvkwgvxaixh" path="res://assets/fonts/home-video-font/HomeVideo-BLG6G.ttf" id="11_mxyov"]
 [ext_resource type="AudioStream" uid="uid://cdf8l3ex7k4ml" path="res://assets_ai/processed/sfx_hurt_ouch.ogg" id="12_20pb6"]
+[ext_resource type="AudioStream" uid="uid://dq0jhrhn6mssu" path="res://assets_ai/processed/sfx_ghost_dissolve.ogg" id="13_yomtd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yomtd"]
 texture = ExtResource("5_pxsja")
@@ -113,3 +114,6 @@ stream = ExtResource("11_c075x")
 
 [node name="SFXOuch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_20pb6")
+
+[node name="SFXDissolve" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_yomtd")
