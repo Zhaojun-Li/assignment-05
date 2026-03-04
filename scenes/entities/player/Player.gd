@@ -31,6 +31,9 @@ func _ready() -> void:
 	# Invulnerability at start
 	_start_invuln_and_lock()
 
+	# Ensure idle plays if AnimatedSprite2D exists
+	_play_anim_for_state(0.0)
+
 func _physics_process(delta: float) -> void:
 	# Play death effect
 	if is_dead:
@@ -97,6 +100,9 @@ func _physics_process(delta: float) -> void:
 		var level := get_parent()
 		if level and level.has_method("play_sfx_fire"):
 			level.play_sfx_fire()
+
+	# Animation control
+	_play_anim_for_state(axis)
 
 	move_and_slide()
 
@@ -168,6 +174,22 @@ func _get_sprite_visible() -> bool:
 	if sprite_node:
 		return sprite_node.visible
 	return true
+
+# Animation helper
+func _play_anim_for_state(axis: float) -> void:
+	if sprite_node is AnimatedSprite2D:
+		var anim := sprite_node as AnimatedSprite2D
+
+		# Face direction
+		anim.flip_h = (facing < 0)
+
+		# Choose animation based on horizontal input
+		if axis != 0.0:
+			if anim.animation != "run":
+				anim.play("run")
+		else:
+			if anim.animation != "idle":
+				anim.play("idle")
 
 func _start_death_effect() -> void:
 	is_dead = true
